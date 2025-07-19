@@ -1,0 +1,5 @@
+motion_params:
+  angular_velocity: 1.2
+
+node_defaults:
+  publisher_linear: 1.8 

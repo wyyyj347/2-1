@@ -1,0 +1,8 @@
+<launch>
+    <rosparam command="load" file="$(find turtle_control)/config/params.yaml"/>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim" output="screen"/>
+    <node pkg="turtle_control" type="publish_velocity.py" name="velocity_publisher" output="screen">
+        <param name="~default_linear" value="$(optenv DEFAULT_LINEAR 1.5)"/>
+    </node>
+    <node pkg="turtle_control" type="turtle_controller" name="turtle_controller" output="screen"/>
+</launch>
