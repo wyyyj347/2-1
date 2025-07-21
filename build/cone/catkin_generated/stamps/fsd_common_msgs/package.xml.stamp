@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>cone</name>
+  <version>0.0.0</version>
+  <description>Messages</description>
+
+  <maintainer email="chenshaohao@scutracing.com">chenshaohao</maintainer>
+  <license>TODO</license>
+  <author email="chenshaohao@scutracing.com">chenshaohao</author>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!--For loading custom messages-->
+  <build_depend>message_generation</build_depend>
+  <build_export_depend>message_runtime</build_export_depend>
+  <exec_depend>message_runtime</exec_depend>
+
+  <!--Other depends-->
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+   <depend>can_msgs</depend>
+
+  <export>
+  </export>
+</package>

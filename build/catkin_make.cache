@@ -1,0 +1,2 @@
+fsd_common_msgs
+-DCATKIN_DEVEL_PREFIX=/home/wyj/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/wyj/catkin_ws/install -G Unix Makefiles

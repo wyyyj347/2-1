@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<rviz>
+  <VisualizationManager>
+    <GlobalOptions>
+      <fixed_frame value="base_link"/>
+    </GlobalOptions>
+    <Display name="Markers" type="rviz/MarkerArray">
+      <Property name="Topic" value="/cone_markers"/>
+    </Display>
+  </VisualizationManager>
+</rviz>
+

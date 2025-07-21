@@ -1,0 +1,2 @@
+nav_msgs/Path global_path
+bool isReachMid

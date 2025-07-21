@@ -1,0 +1,15 @@
+std_msgs/Header header
+
+#此msg用来发送特定数据给CAN_send节点，再发到canB总线
+float32 speed_target
+float32 speed_actual
+float32 steering_angle_target
+float32 steering_angle_actual
+float32 brake_hydr_target
+float32 brake_hydr_actual
+float32 motor_moment_target
+float32 motor_moment_actual
+
+float32 acceleration_longitudinal
+float32 acceleration_lateral
+float32 yaw_rate
