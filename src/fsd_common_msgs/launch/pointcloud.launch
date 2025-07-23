@@ -1,0 +1,8 @@
+<launch>
+    <node pkg="rosbag" type="play" name="bag_player" 
+          args="--clock -r 0.5 $(find fsd_common_msgs)/bag/carla_test.bag"  
+          output="screen" required="true"/>
+    <node pkg="fsd_common_msgs" type="point_cloud_node" name="point_cloud_node" 
+          output="screen" required="true"/>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find fsd_common_msgs)/rviz/fsd_visualization.rviz" />
+</launch>

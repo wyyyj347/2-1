@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.12)
 project(fsd_common_msgs)
-
+set(CMAKE_CXX_FLAGS "-std=c++11")
 find_package(catkin REQUIRED COMPONENTS
   message_generation  # Needed to generate custom message types
   std_msgs
@@ -10,7 +10,15 @@ find_package(catkin REQUIRED COMPONENTS
   can_msgs
   nav_msgs
   visualization_msgs
+  sensor_msgs
+  eigen_conversions
+  message_filters
+  pcl_conversions
+  pcl_ros
   )
+find_package(OpenCV REQUIRED)
+find_package(Eigen3 REQUIRED)
+find_package(PCL 1.8 REQUIRED)
 
 add_message_files(  # Tell catkin which custom message files to include
   FILES
@@ -51,16 +59,26 @@ generate_messages(
   nav_msgs
   visualization_msgs
 )
-
+add_executable(cone_projection_node src/ConeProject.cpp)
+add_executable(point_cloud_node src/PointCloud.cpp)
+target_link_libraries(cone_projection_node
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBRARIES}
+)
+target_link_libraries(point_cloud_node
+  ${catkin_LIBRARIES}
+  ${PCL_LIBRARIES}
+)
 catkin_package(
-  CATKIN_DEPENDS message_runtime std_msgs geometry_msgs can_msgs# Needed to generate custom messages
+  CATKIN_DEPENDS message_runtime std_msgs geometry_msgs can_msgs sensor_msgs eigen_conversions message_filters pcl_conversions pcl_ros# Needed to generate custom messages
 )
 include_directories(
   # include
   ${catkin_INCLUDE_DIRS}
-  ${roscpp_INCLUDE_DIRS}
-  ${rospy_INCLUDE_DIRS}
+  ${OpenCV_INCLUDE_DIRS}
+  ${PCL_INCLUDE_DIRS}
 )
+
 install(PROGRAMS
   scripts/subscriber.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
